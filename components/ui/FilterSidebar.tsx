@@ -38,10 +38,10 @@ export function FilterSidebar({
   onReset,
 }: FilterSidebarProps) {
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       {/* Línea */}
-      <div>
-        <h4 className="sans text-[9px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-4">
+      <section>
+        <h4 className="font-sans text-[9px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-5">
           Línea
         </h4>
         <div className="space-y-3">
@@ -54,11 +54,11 @@ export function FilterSidebar({
             />
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Aroma */}
-      <div>
-        <h4 className="sans text-[9px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-4">
+      <section>
+        <h4 className="font-sans text-[9px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-5">
           Aroma
         </h4>
         <div className="space-y-3">
@@ -71,11 +71,11 @@ export function FilterSidebar({
             />
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Formato */}
-      <div>
-        <h4 className="sans text-[9px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-4">
+      <section>
+        <h4 className="font-sans text-[9px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-5">
           Formato
         </h4>
         <div className="space-y-3">
@@ -88,11 +88,11 @@ export function FilterSidebar({
             />
           ))}
         </div>
-      </div>
+      </section>
 
       {/* Atributos */}
-      <div>
-        <h4 className="sans text-[9px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-4">
+      <section>
+        <h4 className="font-sans text-[9px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-5">
           Atributos
         </h4>
         <div className="space-y-3">
@@ -107,11 +107,11 @@ export function FilterSidebar({
             onChange={onToggleConcentrado}
           />
         </div>
-      </div>
+      </section>
 
       {/* Precio */}
-      <div>
-        <h4 className="sans text-[9px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-4">
+      <section>
+        <h4 className="font-sans text-[9px] uppercase tracking-[0.3em] text-stone-400 font-bold mb-5">
           Ordenar por precio
         </h4>
         <div className="space-y-3">
@@ -126,15 +126,22 @@ export function FilterSidebar({
             onChange={() => onToggleOrden("desc")}
           />
         </div>
-      </div>
+      </section>
 
+      {/* Botón de Reset Refinado */}
       {totalFiltros > 0 && (
-        <button
-          onClick={onReset}
-          className="w-full py-3 rounded-xl border border-stone-200 sans text-[10px] uppercase tracking-widest text-stone-500 hover:border-red-300 hover:text-red-500 transition-all"
-        >
-          Limpiar filtros ({totalFiltros})
-        </button>
+        <div className="pt-4 animate-in fade-in slide-in-from-bottom-2">
+          <button
+            onClick={onReset}
+            className="w-full py-4 rounded-xl border border-stone-200 font-sans text-[10px] uppercase tracking-widest text-stone-500 hover:bg-stone-50 hover:border-red-200 hover:text-red-500 transition-all flex items-center justify-center gap-2 group"
+          >
+            <X
+              size={12}
+              className="group-hover:rotate-90 transition-transform duration-300"
+            />
+            Limpiar filtros ({totalFiltros})
+          </button>
+        </div>
       )}
     </div>
   );
