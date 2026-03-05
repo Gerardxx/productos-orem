@@ -2,10 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Leaf } from "lucide-react";
+import { Settings2, User } from "lucide-react";
 import { TOKENS } from "@/lib/data";
 import { CartSheet } from "@/components/ui/CartSheet";
 import Link from "next/link";
+import { IconAuth2fa, IconDashboard } from "@tabler/icons-react";
 
 const NAV_LINKS = ["Colecciones", "Tecnología", "Sostenibilidad"];
 
@@ -22,7 +23,7 @@ export function Navbar() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 inset-x-0 z-40 flex justify-center p-6 pointer-events-none"
+      className="fixed top-0 inset-x-0 z-40 pointer-events-none"
     >
       <nav
         style={{
@@ -32,38 +33,51 @@ export function Navbar() {
           borderColor: isScrolled ? TOKENS.arena : "transparent",
         }}
         className={`
-          pointer-events-auto flex items-center justify-between px-8 rounded-full
-          transition-all duration-700 w-full max-w-6xl backdrop-blur-md border
+          pointer-events-auto flex items-center justify-between px-6 md:px-8
+          transition-all duration-700 w-full backdrop-blur-md border-b
           ${isScrolled ? "py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)]" : "py-5"}
         `}
       >
         {/* Logo */}
-        <div className="serif italic text-2xl font-semibold tracking-tight cursor-pointer flex items-center gap-2">
-          Productos<span style={{ color: TOKENS.terracota }}>.ORE M</span>
+        <div className="serif italic text-xl md:text-2xl font-semibold tracking-tight cursor-pointer leading-tight">
+          <span>Productos</span>
+          <span style={{ color: TOKENS.terracota }}>.ORE M</span>
         </div>
 
-        {/* Links */}
+        {/* Links — solo desktop */}
         <div className="hidden md:flex gap-10 items-center">
           {NAV_LINKS.map((item) => (
-            <a
+            <Link
               key={item}
               href="#"
               className="sans text-[10px] uppercase tracking-[0.25em] font-semibold opacity-60 hover:opacity-100 transition-all hover:translate-y-[-1px]"
             >
               {item}
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* Actions */}
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-3">
           <CartSheet />
+
+          {/* Desktop: texto completo */}
           <Link
             href="/dashboard"
             style={{ backgroundColor: TOKENS.negro, color: TOKENS.crema }}
-            className="hidden sm:block px-8 py-3 rounded-full sans text-[10px] uppercase tracking-widest font-bold hover:shadow-xl transition-all active:scale-95"
+            className="hidden sm:flex px-6 py-3 rounded-full sans text-[10px] uppercase tracking-widest font-bold hover:shadow-xl transition-all active:scale-95"
           >
             Administrar
+          </Link>
+
+          {/* Mobile: ícono */}
+          {/* Mobile: texto pequeño */}
+          <Link
+            href="/dashboard"
+            style={{ backgroundColor: TOKENS.negro, color: TOKENS.crema }}
+            className="flex sm:hidden px-4 py-2 rounded-full sans text-[9px] uppercase tracking-widest font-bold active:scale-95 transition-all"
+          >
+            Admin
           </Link>
         </div>
       </nav>

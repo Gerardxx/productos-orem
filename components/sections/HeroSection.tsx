@@ -22,7 +22,7 @@ export function HeroSection() {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
         >
           <span className="sans text-[10px] uppercase tracking-[0.4em] text-stone-400 mb-8 block font-semibold">
-            Diseño Botánico — Lima 2026
+            Naturaleza que transforma — Lima 2026
           </span>
           <h1 className="serif italic text-[10vw] lg:text-[7.5vw] leading-[0.82] mb-10 text-stone-900 tracking-tighter">
             Limpieza <br /> con{" "}

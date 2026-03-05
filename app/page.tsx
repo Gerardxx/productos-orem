@@ -21,13 +21,6 @@ export default function Page() {
         className="min-h-screen selection:bg-[#A3B899] selection:text-white"
         style={{ backgroundColor: TOKENS.crema, color: TOKENS.negro }}
       >
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@200;300;400;500;600&display=swap');
-          .serif { font-family: 'Cormorant Garamond', serif; }
-          .sans  { font-family: 'Inter', sans-serif; }
-        `}</style>
-
-        {/* Barra de progreso */}
         <motion.div
           className="fixed top-0 left-0 right-0 h-[2px] z-[100] origin-left"
           style={{ scaleX, backgroundColor: TOKENS.musgo }}
