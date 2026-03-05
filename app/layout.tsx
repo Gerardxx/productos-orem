@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LH.Pro — Limpieza Botánica Premium",
+  title: "ORE M — Limpieza Botánica Premium",
   description: "Productos de limpieza premium con ingredientes naturales peruanos.",
 };
 
