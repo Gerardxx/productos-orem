@@ -145,6 +145,20 @@
   }
 }
 
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #f9f7f2;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #c66b44;
+  border-radius: 10px;
+  border: 2px solid #f9f7f2;
+}
+
 @keyframes marquee-sync {
   0% {
     transform: translateX(0);

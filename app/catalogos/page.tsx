@@ -15,7 +15,6 @@ export default function CatalogosPage() {
   const filters = useCatalogFilters();
 
   return (
- 
     <div className="min-h-screen bg-crema text-negro selection:bg-salvia selection:text-white">
       {/* HEADER: bg-crema/85 para el efecto blur con tu color base */}
       <header className="sticky top-0 z-40 backdrop-blur-md border-b border-stone-100 bg-crema/85">
@@ -84,8 +83,9 @@ export default function CatalogosPage() {
 
       {/* LAYOUT PRINCIPAL */}
       <div className="max-w-7xl mx-auto px-6 pb-32 flex gap-10">
-        <aside className="hidden md:block w-56 shrink-0">
-          <div className="sticky top-24 bg-white rounded-[2rem] border border-stone-100 overflow-hidden flex flex-col h-fit max-h-[calc(100vh-7rem)]">
+        <aside className="hidden md:block w-64 shrink-0">
+          <div className="sticky top-24 bg-stone-50 rounded-[2rem] border border-stone-200 flex flex-col">
+            {/* Header fijo */}
             <div className="p-6 border-b border-stone-100 flex items-center justify-between shrink-0">
               <h3 className="font-sans text-[10px] uppercase tracking-[0.3em] text-stone-900 font-bold">
                 Filtros
@@ -99,13 +99,15 @@ export default function CatalogosPage() {
                 </button>
               )}
             </div>
-            <div className="overflow-y-auto p-6">
+
+            {/* Este div debe ser el que scrollea, no el aside */}
+            <div className="p-6 flex-1 overscroll-contain">
               <FilterSidebar {...filters} />
             </div>
           </div>
         </aside>
 
-        <main className="flex-1">
+        <main className="flex-1 min-w-0 overflow-hidden">
           <div className="flex items-center justify-between mb-8">
             <p className="font-sans text-xs text-stone-400">
               <span className="text-stone-900 font-semibold">
@@ -122,21 +124,25 @@ export default function CatalogosPage() {
               )}
             </p>
           </div>
-
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="wait">
             {filters.filtered.length > 0 ? (
               <motion.div
-                layout
+                key="grid"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
               >
                 {filters.filtered.map((product, i) => (
-                  <ProductCard key={product.id} product={product} index={i} />
+                  <ProductCard key={product.id} product={product} index={i} /> // layout va dentro del ProductCard si quieres
                 ))}
               </motion.div>
             ) : (
               <motion.div
+                key="empty"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 className="py-32 text-center"
               >
                 <p className="font-serif italic text-4xl text-stone-300 mb-4">
