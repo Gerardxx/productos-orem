@@ -63,7 +63,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 md:pt-10 border-t border-stone-800 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
           <span className="font-sans text-[9px] uppercase tracking-[0.5em] text-stone-600">
-            © 2026 Productos.ORE M — Todos los derechos reservados
+            © 2026 Servicios Generales Ore M & G S.A.C.
           </span>
 
           <div className="flex gap-8">
