@@ -49,12 +49,12 @@ export function Footer() {
                 Contacto
               </h5>
               <p className="font-sans text-sm text-stone-400 font-light leading-relaxed">
-                Lince, Lima — Perú <br />
+                San Juan de Lurigancho, Lima — Perú <br />
                 <span className="hover:text-white transition-colors cursor-pointer">
-                  hola@productosorem.pe
+                  mygserviciosgenerales@gmail.com
                 </span>{" "}
                 <br />
-                +51 900 000 000
+                +51 944 339 257
               </p>
             </div>
           </div>
