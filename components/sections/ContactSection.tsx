@@ -113,7 +113,7 @@ export function ContactSection() {
           </div>
         </div>
 
-        {/* Card verde - Horarios */}
+        {/* Horarios */}
         <div className="p-8 md:p-10 rounded-[2.5rem] md:rounded-[3rem] flex flex-col justify-between text-white relative overflow-hidden bg-musgo min-h-[220px]">
           <Clock size={100} className="absolute -top-10 -right-10 opacity-10" />
           <div className="w-14 h-14 rounded-2xl flex items-center justify-center bg-white/10 backdrop-blur-md">
